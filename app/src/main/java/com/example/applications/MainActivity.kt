@@ -17,35 +17,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
+        var flag = true
         binding.button.setOnClickListener {
-            var editText1 = binding.editTextNumber1.text.toString()
-            var editText2 = binding.editTextNumber2.text.toString()
-            var editTextSymbol = binding.editTextSymbol.text.toString()
-            var res = 0
-            if (editText1 == null || editText2 == null || editTextSymbol == null) {
-                binding.tvResult.text = "write number"
-            }
-            else {
-                if (editTextSymbol == "1") {
-                    res = editText1.toInt() + editText2.toInt()
-                    binding.tvResult.text = res.toString()
-                }
-                else if (editTextSymbol == "2") {
-                    res = editText1.toInt() - editText2.toInt()
-                    binding.tvResult.text = res.toString()
-                }
-                else if (editTextSymbol == "3") {
-                    res = editText1.toInt() * editText2.toInt()
-                    binding.tvResult.text = res.toString()
-                }
-                else if (editTextSymbol == "4") {
-                    res = editText1.toInt() / editText2.toInt()
-                    binding.tvResult.text = res.toString()
-                }
-                else {
-                    binding.tvResult.text = "Wrong symbol"
-                }
+            if (flag) {
+                binding.imageView.setImageResource(R.mipmap.red_crystal)
+                flag = false
+            } else {
+                binding.imageView.setImageResource(R.mipmap.blue_crystal)
+                flag = true
             }
         }
     }
